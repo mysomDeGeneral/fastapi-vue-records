@@ -17,6 +17,7 @@ env3.*/
 
 # Environment variables
 .env
+*env
 
 # Mac OS files
 .DS_Store
