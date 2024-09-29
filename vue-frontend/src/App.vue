@@ -47,21 +47,23 @@ export default {
   align-items: center;
   min-height: 100vh;
   background-color: #f0f0f0;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .container {
   background-color: white;
-  padding: 20px;
-  max-width: 600px;
+  padding: 40px;
+  max-width: 800px; /* Increased width for better spacing */
   width: 100%;
-  margin: 0 auto;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   font-family: Arial, sans-serif;
+  text-align: center; /* Center-aligns the text */
 }
 
 h1 {
-  text-align: center;
+  margin-bottom: 20px; /* Adds space between heading and form */
   color: black;
 }
 

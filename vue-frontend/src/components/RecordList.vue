@@ -1,25 +1,44 @@
 <template>
   <div class="record-list">
     <h2>Records</h2>
-    <ul>
-      <li v-for="record in records" :key="record.id">
+    <table>
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Phone</th>
+          <th>City</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="record in records" :key="record.id">
         <template v-if="editingId === record.id">
-          <input v-model="editedRecord.first_name" placeholder="First Name">
-          <input v-model="editedRecord.last_name" placeholder="Last Name">
-          <input v-model="editedRecord.phone" placeholder="Phone">
-          <input v-model="editedRecord.city" placeholder="City">
-          <button @click="updateRecord(record.id)">Save</button>
-          <button @click="cancelEdit">Cancel</button>
+          <td><input v-model="editedRecord.first_name" placeholder="First Name"></td>
+          <td><input v-model="editedRecord.last_name" placeholder="Last Name"></td>
+          <td><input v-model="editedRecord.phone" placeholder="Phone"></td>
+          <td><input v-model="editedRecord.city" placeholder="City"></td>
+          <td>
+            <button @click="updateRecord(record.id)">Save</button>
+            <button @click="cancelEdit">Cancel</button>
+          </td>
         </template>
         <template v-else>
-          <div class="record-details">
-            <span>{{ record.first_name }} {{ record.last_name }} - {{ record.phone }} ({{ record.city }})</span>
-            <button class="edit-button" @click="editRecord(record)">Edit</button>
-            <button class="delete-button" @click="deleteRecord(record.id)">Delete</button>
-          </div>
+          <!-- <div class="record-details"> -->
+            <td>{{ record.first_name }}</td>
+             <td>{{ record.last_name }}</td>
+             <td>{{ record.phone }}</td>
+             <td>{{ record.city }}</td>
+             <td>
+               <button class="edit-button" @click="editRecord(record)">Edit</button>
+                <button class="delete-button" @click="deleteRecord(record.id)">Delete</button>
+             </td>
+          <!-- </div> -->
         </template>
-      </li>
-    </ul>
+        </tr>
+      </tbody>
+    </table>
+
   </div>
 </template>
 
@@ -111,14 +130,38 @@ button {
   cursor: pointer;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  text-align: left;
+  color:#333
+}
+
+thead th {
+  background-color: #f9f9f9;
+}
+
 .edit-button {
   background-color: #f0ad4e;
   color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .delete-button {
   background-color: #d9534f;
   color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
