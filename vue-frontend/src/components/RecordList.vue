@@ -24,7 +24,6 @@
           </td>
         </template>
         <template v-else>
-          <!-- <div class="record-details"> -->
             <td>{{ record.first_name }}</td>
              <td>{{ record.last_name }}</td>
              <td>{{ record.phone }}</td>
@@ -33,7 +32,6 @@
                <button class="edit-button" @click="editRecord(record)">Edit</button>
                 <button class="delete-button" @click="deleteRecord(record.id)">Delete</button>
              </td>
-          <!-- </div> -->
         </template>
         </tr>
       </tbody>
