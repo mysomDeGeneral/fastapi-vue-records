@@ -13,6 +13,8 @@ import RecordForm from './components/RecordForm.vue';
 import RecordList from './components/RecordList.vue';
 import axios from 'axios';
 
+const API_URL = import.meta.env.VITE_BACKEND_URL
+
 export default {
   name: 'App',
   components: {
@@ -27,7 +29,7 @@ export default {
   methods: {
     async fetchRecords() {
       try {
-        const response = await axios.get('http://127.0.0.1:8000/records');
+        const response = await axios.get(`${API_URL}/records`);
         this.records = response.data;
       } catch (error) {
         console.error('Error fetching records:', error);
@@ -80,4 +82,11 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
+@media (min-width: 1024px) {
+  #app {
+    display: flex;
+  }
+}
+
 </style>
